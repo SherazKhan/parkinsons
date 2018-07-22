@@ -10,6 +10,7 @@ Parkinson’s disease (PD) is impacting more than 10 million people worldwide. H
 
 * Software
 <img src="images/architecture.jpg"/>
+
 * Hardware
 <img src="images/hardware.jpg">
 
