@@ -33,6 +33,23 @@ Parkinson’s disease (PD) is impacting more than 10 million people worldwide. H
 
 We are using the four class classifier based on CNN. [[baseline](https://www.tensorflow.org/tutorials/audio_recognition)] [[paper](https://www.isca-speech.org/archive/interspeech_2015/papers/i15_1478.pdf)]
 
+```
+python3 classifier/speech_classifier/speech.py
+```
+
+The data structure must assume the form of
+```
+data/train >
+  healthy >
+    audio_0.wav
+    audio_1.wav
+  pd_1 >
+    audio_2.wav
+    audio_3.wav
+  pd_2>
+    audio_4.wav
+    audio_5.wav
+```
 
 ### GAN based Speech Synthesis system
 
