@@ -9,8 +9,8 @@ import tensorflow as tf
 from tensorflow.python.platform import gfile
 
 # parameters
-PATH_TRAIN = 'data/train'
-PATH_TEST = 'data/test'
+PATH_TRAIN = '../data'
+PATH_TEST = '../data'
 BATCH_SIZE = 100
 ITERATIONS = 500
 ITERATIONS_TEST = 10
@@ -43,6 +43,10 @@ def one_hot_encoding(label):
 # get MFCC
 def get_mfcc(wave_path, PAD_WIDTH=WIDTH):
     wave, sr = librosa.load(wave_path, mono=True)
+    # slice into mid 1 sec
+    first = len(wave) / 2 - 10350
+    end = len(wave) / 2 + 10349
+    wave = wave[first:end]
     mfccs = librosa.feature.mfcc(y=wave, sr=sr, n_mfcc=HEIGHT)
     mfccs = np.pad(mfccs, ((0,0), (0, PAD_WIDTH - len(mfccs[0]))), mode='constant')
     return mfccs
