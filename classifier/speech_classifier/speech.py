@@ -43,10 +43,6 @@ def one_hot_encoding(label):
 # get MFCC
 def get_mfcc(wave_path, PAD_WIDTH=WIDTH):
     wave, sr = librosa.load(wave_path, mono=True)
-    # slice into mid 1 sec
-    first = len(wave) / 2 - 10350
-    end = len(wave) / 2 + 10349
-    wave = wave[first:end]
     mfccs = librosa.feature.mfcc(y=wave, sr=sr, n_mfcc=HEIGHT)
     mfccs = np.pad(mfccs, ((0,0), (0, PAD_WIDTH - len(mfccs[0]))), mode='constant')
     return mfccs
