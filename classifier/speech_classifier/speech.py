@@ -154,6 +154,7 @@ def main():
             header = LABEL_TO_INDEX_MAP.keys()
             df = pd.DataFrame(np.reshape(train_confusion_matrix, (NUM_LABELS, NUM_LABELS)))
             print('\nConfusion Matrix:\n {}\n '.format(df))
+            tf.train.write_graph(sess.graph_def, LOGDIR, "model.pb", False)
             saver.save(sess, os.path.join(LOGDIR, "model.ckpt"), i)
 
         sess.run(train_step, feed_dict={x:X, y:Y, dropout:0.5})
