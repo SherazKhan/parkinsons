@@ -9,8 +9,8 @@ import tensorflow as tf
 from tensorflow.python.platform import gfile
 
 # parameters
-PATH_TRAIN = '../data'
-PATH_TEST = '../data'
+PATH_TRAIN = '../data/train'
+PATH_TEST = '../data/test'
 BATCH_SIZE = 100
 ITERATIONS = 500
 ITERATIONS_TEST = 10
